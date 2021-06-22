@@ -142,13 +142,19 @@ public class KioskActivity extends CordovaActivity {
             timer.schedule(new TimerTask() {
                 int counter = 0;
                 public void run() {
-                    //call the method
-                    Intent closeDialog = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
-                    sendBroadcast(closeDialog);
-                    counter++;
-                    // run for x seconds
-                    if (counter*timeInterval >= duration){
+                    if (!kioskEnabled) {
+                        // kiosk mode has been disabled. Don't close system dialog and stop the timer
                         timer.cancel();
+                    }
+                    else {
+                        //call the method
+                        Intent closeDialog = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+                        sendBroadcast(closeDialog);
+                        counter++;
+                        // run for x seconds
+                        if (counter*timeInterval >= duration){
+                            timer.cancel();
+                        }
                     }
                 }
             }, begin, timeInterval);
