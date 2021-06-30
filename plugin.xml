@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-kiosk-ia" version="1.1.0" author="Claus Helfenschneider (based on Jan Kalina)">
+        id="cordova-plugin-kiosk-go" version="1.1.0" author="Gilles Rautureau - original: Claus Helfenschneider (based on Jan Kalina)">
 
     <name>Cordova Kiosk Mode</name>
-    <author>Claus Helfenschneider (based on Jan Kalina)</author>
+    <author>Gilles Rautureau - original: Claus Helfenschneider (based on Jan Kalina)</author>
     <description>
         Cordova plugin to create Cordova application with "kiosk mode".
         App with this plugin can be set as Android launcher.
@@ -16,7 +16,7 @@
         This plugin is for Android for now. Support of iOS would be useless,
         becase this feature is builded in iOS as Guided Access.
 		
-		This plugin is a fork of Jan Kalina's Cordova Kiosk Mode plugin:
+		This plugin is a fork of Claus Helfenschneider's version of Jan Kalina's Cordova Kiosk Mode plugin:
 		
 		Plugin website: https://github.com/honza889/cordova-plugin-kiosk
         Example app: https://github.com/honza889/cordova-kiosk-demo
@@ -24,6 +24,9 @@
 		This plugin contains mainly two changes/updates:
 		- Non-clickable area on top of screen has been made smaller
 		- Top menu is closed more aggressively
+	    
+	    	The go variant disable StatusBarOverlay permission (unavailable in Android Go) and end quickly the force close process on disable kiosk mode.
+	    
         - Added setCloseSystemDialogIntervalMillis(int), setCloseSystemDialogDurationMillis(int) and setKioskEnabled(bool)
     </description>
     <keywords>cordova, launcher, homescreen, kiosk, kiosk mode</keywords>
